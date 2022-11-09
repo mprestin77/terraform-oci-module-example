@@ -1,0 +1,6 @@
+tenancy_ocid="ocid1.tenancy.oc1..aaaaaaaaubrkzed3mzqxtsxx4qnfgmcmoh5mm7r6r33e3joefrayjnrmf7oa"
+user_ocid="ocid1.user.oc1..aaaaaaaaqxbkfx3urtvnu7phbo7vt2qbn7paclireneja2hse7f6dokt365a"
+fingerprint="5d:31:0f:5e:f6:33:bb:f6:ed:0c:30:cc:bf:54:12:9e"
+private_key_path="~/.oci/oci_api_key.pem"
+region="us-phoenix-1"
+compartment_ocid="ocid1.compartment.oc1..aaaaaaaafqqzlp3q7hinidlksbhanwlw7trv74sv6tkbympy72a5kmyui6eq"
