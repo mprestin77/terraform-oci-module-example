@@ -1,4 +1,13 @@
 # terraform-oci-module-example
+## IaaS Provisioning on OCI Using Terraform Modules
+This example uses Terraform modules to provision the following resources:
+
+- It creates a Virtual Cloud Network on OCI with a public and private subnets, security lists and route tables, and enables security rules
+
+- It provisions 2 VMs (Oracle Linux and Windows) on the private subnet, and installs SSH bastion VM on the public subnet
+
+- (Optionally) It creates a bastion service to the private subnet
+   
 ## Prerequisites
 
 - Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy: `vcns`, `internet-gateways`, `route-tables`, `security-lists`, `subnets`, and `instances`.
@@ -29,13 +38,11 @@ private_key_path     = "<pem_private_key_path>"
 # Region
 region = "<oci_region>"
 
-# Set Availablity Domain  
-availablity_domain_name = "<availablity_domain_name>" # for example GrCH:US-ASHBURN-AD-1
-
 # Compartment
 compartment_ocid        = "<compartment_ocid>"
 
 ````
+You can edit variables.tf file and and set values based on your requirements
 
 ### Create the Resources
 Run the following commands:
