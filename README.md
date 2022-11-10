@@ -45,7 +45,7 @@ compartment_ocid        = "<compartment_ocid>"
 You can edit variables.tf file and and set values based on your requirements
 
 ### Create the Resources
-Run the following commands:
+Download the latest Terraform version from https://www.terraform.io/downloads. Run the following commands:
 
     terraform init
     terraform plan
