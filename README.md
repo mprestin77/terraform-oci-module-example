@@ -1,5 +1,5 @@
 # terraform-oci-module-example
-## IaaS Provisioning on OCI Using Terraform Modules
+## Provisioning Infrastructure on OCI Using Terraform Modules
 This example shows how to use Terraform modules to provision the following resources:
 
 - It creates a Virtual Cloud Network on OCI with a public and private subnets, security lists and route tables, and enables security rules
