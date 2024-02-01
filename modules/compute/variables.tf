@@ -6,6 +6,7 @@
 
 variable "user_data" {}
 variable "compartment_ocid" {}
+variable "num_instances" {}
 variable "availability_domain" {}
 variable "instance_name" {}
 variable "instance_shape" {}

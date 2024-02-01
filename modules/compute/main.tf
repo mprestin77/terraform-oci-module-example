@@ -1,30 +1,11 @@
 ## Copyright (c) 2021 Oracle and/or its affiliates.
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
-#data "template_file" "key_script" {
-#  template = file("${path.module}/scripts/sshkey.tpl")
-#  vars = {
-#    ssh_public_key = tls_private_key.public_private_key_pair.public_key_openssh
-#  }
-#}
-
-/*
-data "template_cloudinit_config" "cloud_init" {
-  gzip          = true
-  base64_encode = true
-
-  part {
-    filename     = "ainit.sh"
-    content_type = "text/x-shellscript"
-    content      = data.template_file.key_script.rendered
-  }
-}
-*/
-
 resource "oci_core_instance" "instance" {
+  count               = var.num_instances
   availability_domain = var.availability_domain
   compartment_id      = var.compartment_ocid
-  display_name        = var.instance_name
+  display_name        = "${var.instance_name}${count.index+1}"
   shape               = var.instance_shape
 
   shape_config {
@@ -35,6 +16,7 @@ resource "oci_core_instance" "instance" {
   create_vnic_details {
     subnet_id        = var.subnet_id
     assign_public_ip = var.create_in_private_subnet ? false : true
+    hostname_label   = "${var.instance_name}${count.index+1}"
   }
 
   source_details {

@@ -52,39 +52,42 @@ variable "instance1" {
     ocpu = 1
     memory = 10
     os = "Oracle Linux"
-    os_version = "7.9"
+    os_version = "8"
     create_in_private_subnet = false
+    num_instances = 1
   }
 }
 
 variable "instance2" {
   type = map(string)
   default = {
-    name = "server1"
+    name = "app-server"
     shape = "VM.Standard.E4.Flex"
     ocpu = 1
     memory = 10
     os = "Oracle Linux"
-    os_version = "7.9"
+    os_version = "8"
     create_in_private_subnet = true
+    num_instances = 2
   }
 }
 
 variable "instance3" {
   type = map(string)
   default = {
-    name = "server2"
+    name = "win-server"
     shape = "VM.Standard.E4.Flex"
     ocpu = 1
     memory = 10
     os = "Windows"
     os_version = "Server 2019 Standard"
     create_in_private_subnet = true
+    num_instances = 1
   }
 }
 
 variable "create_bastion" {
-  default = true
+  default = false
 }
 
 

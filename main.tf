@@ -29,9 +29,10 @@ module "jump-server" {
   create_in_private_subnet = var.instance1["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.public_subnet_id : module.network.public_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
+  num_instances = 1
 }
 
-module "server1" {
+module "app-server" {
   depends_on = [module.network]
   source = "./modules/compute"
   user_data = base64encode(file("userdata/scripts/cloudinit.sh")) 
@@ -46,9 +47,10 @@ module "server1" {
   create_in_private_subnet = var.instance2["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.private_subnet_id : module.network.private_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
+  num_instances = 2
 }
 
-module "server2" {
+module "win-server" {
   depends_on = [module.network]
   source = "./modules/compute"
   user_data = base64encode(file("userdata/scripts/cloudinit.sh")) 
@@ -63,6 +65,7 @@ module "server2" {
   create_in_private_subnet = var.instance3["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.private_subnet_id : module.network.private_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
+  num_instances = 1
 }
 
 module "bastion" {

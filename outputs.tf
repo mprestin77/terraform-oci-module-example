@@ -5,12 +5,12 @@ output "jumpsrv_public_ip" {
   value = module.jump-server.public_ip
 }
 
-output "server1_private_ip" {
-  value = module.server1.private_ip
+output "app_server_private_ip" {
+  value = module.app-server.*.private_ip
 }
 
-output "server2_private_ip" {
-  value = module.server2.private_ip
+output "win_server_private_ip" {
+  value = module.win-server.*.private_ip
 }
 
 output "generated_ssh_private_key" {
