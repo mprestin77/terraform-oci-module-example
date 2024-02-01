@@ -29,7 +29,7 @@ module "jump-server" {
   create_in_private_subnet = var.instance1["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.public_subnet_id : module.network.public_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
-  num_instances = 1
+  num_instances = var.instance1["num_instances"]
 }
 
 module "app-server" {
@@ -47,7 +47,7 @@ module "app-server" {
   create_in_private_subnet = var.instance2["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.private_subnet_id : module.network.private_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
-  num_instances = 2
+  num_instances = var.instance2["num_instances"]
 }
 
 module "win-server" {
@@ -65,7 +65,7 @@ module "win-server" {
   create_in_private_subnet = var.instance3["create_in_private_subnet"]
   subnet_id = var.use_existing_vcn ? var.private_subnet_id : module.network.private_subnet_id
   ssh_public_key = tls_private_key.ssh_key.public_key_openssh 
-  num_instances = 1
+  num_instances = var.instance3["num_instances"]
 }
 
 module "bastion" {
